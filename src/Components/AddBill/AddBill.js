@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { BillContext } from "../../Context/BillContext";
 
 const AddBill = () => {
   const [billTitle, setBillTitle] = useState("");
   const [billCost, setBillCost] = useState("");
 
-//   console.log(billTitle, billCost);
+  //   console.log(billTitle, billCost);
+
+  const { updateBills } = useContext(BillContext);
 
   const isBillValid = () => {
     const costValid = billCost && Number.parseFloat(billCost);
@@ -20,16 +23,17 @@ const AddBill = () => {
     setBillTitle("");
   };
 
-  const updateBillList = (e) => {
-    e.preventDefault()
-    console.log(billTitle, billCost);
-  };
-
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={e => {
+        e.preventDefault();
         if (isBillValid()) {
-          updateBillList(e)
+          updateBills({
+            title: billTitle,
+            cost: billCost,
+            id: Math.floor(Math.random() * 742896206),
+            enabled: true
+          });
           clearForm();
         }
       }}
