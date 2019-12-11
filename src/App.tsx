@@ -15,7 +15,8 @@ const App: React.FC = () => {
           width: "100%",
           maxWidth: "600px",
           minHeight: "800px",
-          boxShadow: "2px 5px 20px grey"
+          boxShadow: "2px 5px 20px grey",
+          borderRadius: ".25rem"
         }}
       >
         <BillContextProvider>

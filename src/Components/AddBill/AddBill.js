@@ -59,7 +59,7 @@ const AddBill = () => {
           onChange={e => setBillCost(e.target.value)}
         />
       </div>
-      <button className="btn btn-success">Add Bill</button>
+      <button className="btn btn-dark btn-sm">Add Bill</button>
     </form>
   );
 };

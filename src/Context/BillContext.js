@@ -40,8 +40,26 @@ const [selectedCostInterval, setSelectedCostInterval] = useState("Daily")
     });
   };
 
+  const deleteBill = billToDelete => {
+    const billsFiltred = bills.filter(bill=> bill.id !==billToDelete.id)
+    localStorage.setItem("bills", JSON.stringify(billsFiltred))
+    setBills(billsFiltred)
+  }
+
+  const updateBillEdited = (billToUpadate) => {
+    const billsToUpadate = bills.map(bill=> {
+      if(bill.id === billToUpadate.id){
+        return {...billToUpadate}
+      }
+      return bill
+    })
+    const updatedBills = setAlphabeticalOrder([...billsToUpadate]);
+    localStorage.setItem("bills", JSON.stringify(updatedBills));
+    setBills(updatedBills)
+  }
+
   return (
-    <BillContext.Provider value={{ bills, updateBills, updateBillStatus, selectedCostInterval, setSelectedCostInterval }}>
+    <BillContext.Provider value={{ bills, updateBills, updateBillStatus, selectedCostInterval, setSelectedCostInterval, deleteBill, updateBillEdited }}>
       {children}
     </BillContext.Provider>
   );
