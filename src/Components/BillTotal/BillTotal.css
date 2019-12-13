@@ -1,0 +1,9 @@
+@media (max-width: 400px) {
+    .bill-total {
+        text-align: center;
+    }
+
+    .amount {
+        display: block;
+    }
+}

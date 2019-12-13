@@ -1,0 +1,44 @@
+/* style={{
+    padding: "10px",
+    width: "100%",
+    maxWidth: "600px",
+    minHeight: "800px",
+    boxShadow: "2px 5px 20px grey",
+    borderRadius: ".25rem"
+  }} */
+
+  .gradient-border {
+      position: relative;
+      background-color: #f1f1f1;
+
+  }
+
+  .gradient-border::before {
+content: "";
+position: absolute;
+top: -2px;
+bottom: -2px;
+left: -2px;
+right: -2px;
+/* background: #fff; */
+filter: blur(10px);
+z-index: -1;
+/* transform: skew(1.5deg, 1.5deg); */
+  }
+
+  .gradient-border::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    /* background: #fff; */
+    z-index: -2;
+    filter: blur(40px);
+  }
+
+  .gradient-border:nth-child(1):before,
+  .gradient-border:nth-child(1):after {
+background: linear-gradient(235deg, #dc3545, #28a745);
+  }

@@ -31,10 +31,10 @@ const BillList = ({ bill }) => {
   };
 
   const cancelEdit = () => {
-    toggleBillForm()
-    setTitle(bill.title)
-    setCost(bill.cost)
-  }
+    toggleBillForm();
+    setTitle(bill.title);
+    setCost(bill.cost);
+  };
 
   if (isEditing) {
     result = (
@@ -72,6 +72,12 @@ const BillList = ({ bill }) => {
     result = (
       <li className="list-group-item bill">
         <div>
+          <h5 className="d-inline-block">
+            <span className="text-primary">{bill.title}</span>{" "}-{" "}
+            <span className="text-danger">{bill.cost} zł</span>
+          </h5>
+        </div>
+        <div style={{display: "flex", alignItems: "center"}}>
           <input
             type="checkbox"
             checked={bill.enabled}
@@ -83,20 +89,17 @@ const BillList = ({ bill }) => {
                 enabled: !bill.enabled
               });
             }}
-          />{" "}
-          <h5 className="d-inline-block">
-            <span className="text-primary">{bill.title}</span> -{" "}
-            <span className="text-danger">{bill.cost} zł</span>
-          </h5>
-        </div>
-        <div>
+          />
           <button
-            className="btn btn-danger btn-sm mr-2"
+            className="btn btn-danger btn-sm mx-2"
             onClick={() => deleteBill(bill)}
           >
             Delete
           </button>
-          <button className="btn btn-warning btn-sm" onClick={toggleBillForm}>
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={toggleBillForm}
+          >
             Edit
           </button>
         </div>

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { BillContext } from "../../Context/BillContext";
+import "./BillTotal.css"
+
 const BillTotal = () => {
   const { bills, selectedCostInterval, setSelectedCostInterval } = useContext(
     BillContext
@@ -40,7 +42,7 @@ const BillTotal = () => {
 
   return (
     <div
-      className="list-group-item my-3"
+      className="list-group-item my-3 bill-total"
       style={{
         borderRadius: ".25rem",
         borderTop: "1px solid rgba(0,0,0,.125)"
@@ -49,7 +51,7 @@ const BillTotal = () => {
       <div>
         <h4 style={{ fontWeight: 300 }}>
           {selectedCostInterval} You spend:{" "}
-          <span className="text-danger" style={{ fontSize: "40px" }}>
+          <span className="text-danger amount" style={{ fontSize: "40px" }}>
             {/* {bills
               .reduce((acc, curr) => {
                 return curr.enabled ? changeCostInterval(curr.cost) + acc : acc;
@@ -63,7 +65,7 @@ const BillTotal = () => {
       <div>
         <h4 style={{ fontWeight: 300 }}>
           {selectedCostInterval} You save:{" "}
-          <span className="text-success" style={{ fontSize: "40px" }}>
+          <span className="text-success amount" style={{ fontSize: "40px" }}>
             {/* {bills
               .reduce((acc, curr) => {
                 return !curr.enabled

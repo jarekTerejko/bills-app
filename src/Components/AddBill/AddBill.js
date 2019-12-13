@@ -24,43 +24,51 @@ const AddBill = () => {
   };
 
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        if (isBillValid()) {
-          updateBills({
-            title: billTitle,
-            cost: billCost,
-            id: Math.floor(Math.random() * 742896206),
-            enabled: true
-          });
-          clearForm();
-        }
+    <div
+      className="list-group-item my-3"
+      style={{
+        borderRadius: ".25rem",
+        borderTop: "1px solid rgba(0,0,0,.125)"
       }}
     >
-      <div className="form-group">
-        <label htmlFor="bill-name">Bill Name</label>
-        <input
-          type="text"
-          className="form-control"
-          id="bill-name"
-          value={billTitle}
-          onChange={e => setBillTitle(e.target.value)}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="bill-cost">Bill Cost</label>
-        <input
-          type="number"
-          className="form-control"
-          id="bill-cost"
-          step="any"
-          value={billCost}
-          onChange={e => setBillCost(e.target.value)}
-        />
-      </div>
-      <button className="btn btn-dark btn-sm">Add Bill</button>
-    </form>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          if (isBillValid()) {
+            updateBills({
+              title: billTitle,
+              cost: billCost,
+              id: Math.floor(Math.random() * 742896206),
+              enabled: true
+            });
+            clearForm();
+          }
+        }}
+      >
+        <div className="form-group">
+          <label htmlFor="bill-name">Bill Name</label>
+          <input
+            type="text"
+            className="form-control"
+            id="bill-name"
+            value={billTitle}
+            onChange={e => setBillTitle(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="bill-cost">Bill Cost</label>
+          <input
+            type="number"
+            className="form-control"
+            id="bill-cost"
+            step="any"
+            value={billCost}
+            onChange={e => setBillCost(e.target.value)}
+          />
+        </div>
+        <button className="btn btn-dark btn-sm">Add Bill</button>
+      </form>
+    </div>
   );
 };
 
