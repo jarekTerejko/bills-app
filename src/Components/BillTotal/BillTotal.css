@@ -5,11 +5,11 @@
 
 .bill-total h4,
 .bill-total h5 {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .bill-total h5 {
-    text-align: center;
+  text-align: center;
 }
 
 @media (max-width: 400px) {

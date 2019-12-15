@@ -4,23 +4,12 @@ export const BillContext = createContext();
 
 const BillContextProvider = ({ children }) => {
   const [bills, setBills] = useState([]);
-const [selectedCostInterval, setSelectedCostInterval] = useState("Daily")
+  const [selectedCostInterval, setSelectedCostInterval] = useState("Daily");
 
   useEffect(() => {
     setBills(JSON.parse(localStorage.getItem("bills")) || []);
-    //   return () => {
-    //       cleanup
-    //   };
-    console.log("use effect")
+    console.log("use effect");
   }, [setBills]);
-
-
-  // useEffect(() => {
-  //   console.log(bills);
-  //   //   return () => {
-  //   //       cleanup
-  //   //   };
-  // }, [bills]);
 
   const updateBills = bill => {
     const updatedBills = setAlphabeticalOrder([...bills, bill]);
@@ -43,31 +32,42 @@ const [selectedCostInterval, setSelectedCostInterval] = useState("Daily")
   };
 
   const deleteBill = billToDelete => {
-    const billsFiltred = bills.filter(bill=> bill.id !==billToDelete.id)
-    localStorage.setItem("bills", JSON.stringify(billsFiltred))
-    setBills(billsFiltred)
-  }
+    const billsFiltred = bills.filter(bill => bill.id !== billToDelete.id);
+    localStorage.setItem("bills", JSON.stringify(billsFiltred));
+    setBills(billsFiltred);
+  };
 
   const deleteBills = () => {
-    const newBillsAr = []
-    localStorage.setItem("bills", JSON.stringify(newBillsAr))
-    setBills(newBillsAr)
-  }
+    const newBillsAr = [];
+    localStorage.setItem("bills", JSON.stringify(newBillsAr));
+    setBills(newBillsAr);
+  };
 
-  const updateBillEdited = (billToUpadate) => {
-    const billsToUpadate = bills.map(bill=> {
-      if(bill.id === billToUpadate.id){
-        return {...billToUpadate}
+  const updateBillEdited = billToUpadate => {
+    const billsToUpadate = bills.map(bill => {
+      if (bill.id === billToUpadate.id) {
+        return { ...billToUpadate };
       }
-      return bill
-    })
+      return bill;
+    });
     const updatedBills = setAlphabeticalOrder([...billsToUpadate]);
     localStorage.setItem("bills", JSON.stringify(updatedBills));
-    setBills(updatedBills)
-  }
+    setBills(updatedBills);
+  };
 
   return (
-    <BillContext.Provider value={{ bills, updateBills, updateBillStatus, selectedCostInterval, setSelectedCostInterval, deleteBill, deleteBills, updateBillEdited }}>
+    <BillContext.Provider
+      value={{
+        bills,
+        updateBills,
+        updateBillStatus,
+        selectedCostInterval,
+        setSelectedCostInterval,
+        deleteBill,
+        deleteBills,
+        updateBillEdited
+      }}
+    >
       {children}
     </BillContext.Provider>
   );

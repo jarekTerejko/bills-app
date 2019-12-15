@@ -4,9 +4,6 @@ import { BillContext } from "../../Context/BillContext";
 const AddBill = () => {
   const [billTitle, setBillTitle] = useState("");
   const [billCost, setBillCost] = useState("");
-
-  //   console.log(billTitle, billCost);
-
   const { updateBills } = useContext(BillContext);
 
   const isBillValid = () => {
@@ -19,8 +16,8 @@ const AddBill = () => {
   };
 
   const clearForm = () => {
-    setBillCost("");
     setBillTitle("");
+    setBillCost("");
   };
 
   return (

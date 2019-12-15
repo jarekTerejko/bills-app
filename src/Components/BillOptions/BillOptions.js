@@ -43,9 +43,9 @@ const BillOptions = () => {
       </button>
       <button
         className={
-          selectedCostInterval === "Yearly" 
-          ? "btn btn-success my-1 mx-1 btn-sm" 
-          : "btn btn-dark my-1 mx-1 btn-sm"
+          selectedCostInterval === "Yearly"
+            ? "btn btn-success my-1 mx-1 btn-sm"
+            : "btn btn-dark my-1 mx-1 btn-sm"
         }
         onClick={e => setSelectedCostInterval(e.target.innerText)}
       >

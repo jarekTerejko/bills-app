@@ -43,7 +43,7 @@ const BillTotal = () => {
       {!bills.length ? (
         <h5>You don't have any bills yet... Add at least one!</h5>
       ) : (
-        <h5>Your results</h5>
+        <h5>Your expenses and savings</h5>
       )}
       {bills.length ? (
         <>

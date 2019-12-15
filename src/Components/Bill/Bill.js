@@ -7,7 +7,7 @@ const BillList = ({ bill }) => {
     BillContext
   );
 
-  console.log(bills);
+  // console.log(bills);
 
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(bill.title);
@@ -73,11 +73,11 @@ const BillList = ({ bill }) => {
       <li className="list-group-item bill">
         <div>
           <h5 className="d-inline-block">
-            <span className="text-primary">{bill.title}</span>{" "}-{" "}
+            <span className="text-primary">{bill.title}</span> -{" "}
             <span className="text-danger">{bill.cost} zł</span>
           </h5>
         </div>
-        <div style={{display: "flex", alignItems: "center"}}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <input
             type="checkbox"
             checked={bill.enabled}
@@ -96,10 +96,7 @@ const BillList = ({ bill }) => {
           >
             Delete
           </button>
-          <button
-            className="btn btn-primary btn-sm"
-            onClick={toggleBillForm}
-          >
+          <button className="btn btn-primary btn-sm" onClick={toggleBillForm}>
             Edit
           </button>
         </div>
