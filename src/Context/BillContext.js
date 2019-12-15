@@ -11,14 +11,16 @@ const [selectedCostInterval, setSelectedCostInterval] = useState("Daily")
     //   return () => {
     //       cleanup
     //   };
+    console.log("use effect")
   }, [setBills]);
 
-  useEffect(() => {
-    console.log(bills);
-    //   return () => {
-    //       cleanup
-    //   };
-  }, [bills]);
+
+  // useEffect(() => {
+  //   console.log(bills);
+  //   //   return () => {
+  //   //       cleanup
+  //   //   };
+  // }, [bills]);
 
   const updateBills = bill => {
     const updatedBills = setAlphabeticalOrder([...bills, bill]);
@@ -46,6 +48,12 @@ const [selectedCostInterval, setSelectedCostInterval] = useState("Daily")
     setBills(billsFiltred)
   }
 
+  const deleteBills = () => {
+    const newBillsAr = []
+    localStorage.setItem("bills", JSON.stringify(newBillsAr))
+    setBills(newBillsAr)
+  }
+
   const updateBillEdited = (billToUpadate) => {
     const billsToUpadate = bills.map(bill=> {
       if(bill.id === billToUpadate.id){
@@ -59,7 +67,7 @@ const [selectedCostInterval, setSelectedCostInterval] = useState("Daily")
   }
 
   return (
-    <BillContext.Provider value={{ bills, updateBills, updateBillStatus, selectedCostInterval, setSelectedCostInterval, deleteBill, updateBillEdited }}>
+    <BillContext.Provider value={{ bills, updateBills, updateBillStatus, selectedCostInterval, setSelectedCostInterval, deleteBill, deleteBills, updateBillEdited }}>
       {children}
     </BillContext.Provider>
   );

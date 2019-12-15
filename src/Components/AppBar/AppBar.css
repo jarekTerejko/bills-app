@@ -1,0 +1,15 @@
+.AppBar {
+    background: linear-gradient(235deg, #66000a, #00831f);
+    padding: 15px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.AppBar-logo {
+    color: #fff;
+
+}
+
+.AppBar-logo:hover {
+    color: #fff;
+}

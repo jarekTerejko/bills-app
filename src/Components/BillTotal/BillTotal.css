@@ -1,9 +1,23 @@
-@media (max-width: 400px) {
-    .bill-total {
-        text-align: center;
-    }
+.bill-total {
+  border-radius: 0.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
 
-    .amount {
-        display: block;
-    }
+.bill-total h4,
+.bill-total h5 {
+    font-weight: 300;
+}
+
+.bill-total h5 {
+    text-align: center;
+}
+
+@media (max-width: 400px) {
+  .bill-total {
+    text-align: center;
+  }
+
+  .amount {
+    display: block;
+  }
 }

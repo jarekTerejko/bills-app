@@ -42,3 +42,11 @@ z-index: -1;
   .gradient-border:nth-child(1):after {
 background: linear-gradient(235deg, #dc3545, #28a745);
   }
+.heading {
+  font-weight: 900;
+  background: linear-gradient(235deg, #dc3545, #28a745);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; 
+}
+  
